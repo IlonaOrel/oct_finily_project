@@ -19,7 +19,7 @@
                                         <div class="single-doctors">
                                             <div class="doctorsinfo text-center">
                                                 <img src="{{App\models\Doctor::getImage($doctor->photo)}}" class="img-thumbnail" alt="Photo patient" />
-                                                <a href="{{ route('doctor.id', $doctor->id)}}">
+                                                <a href="{{ route('doctors.show', $doctor->id)}}">
                                                     <h2>{{$doctor->doctor}}</h2>
                                                 </a>
                                                 <div>{{ $doctor->specialization }}</div>

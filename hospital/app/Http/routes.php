@@ -14,10 +14,9 @@ Route::get('/doctors', 'DoctorController@getAllDoctors')->name('hospital.doctors
 
 Route::get('/register', 'DoctorController@formByDoc')->name('doctors.create');
 
-Route::post('/doctor', 'DoctorController@createDoctor')->name('doctors.store');
+Route::post('/doctors', 'DoctorController@createDoctor')->name('doctors.store');
 
-Route::get('/doctor/{doctor}', 'DoctorController@infoDoctor')->name('doctor.id');//todo написать запрос
-
+Route::get('/doctors/{doctor}', 'DoctorController@infoDoctor')->name('doctors.show');//todo написать запрос
 
 Route::get('/doctors/{doctor}/edit', 'DoctorController@editDoctor')->name('doctors.edit');
 
@@ -26,7 +25,7 @@ Route::patch('/doctors/{doctor}', 'DoctorController@updateDoctor')->name('doctor
 //=============patients===================================
 Route::get('/patients', 'PatientController@getAllPatients')->name('hospital.patients');
 
-Route::get('/{patient}/card', 'PatientController@infoPatient')->name('card.id');
+Route::get('/patients/{patient}', 'PatientController@infoPatient')->name('patients.show');
 
 
 
@@ -35,7 +34,7 @@ Route::get('/patients/create', function (){
     return view('hospital.patients.create');
 })->name('patients.create');
 
-Route::post('/patient', function (\App\Http\Requests\Request $request){
+Route::post('/patients', function (\App\Http\Requests\Request $request){
     $validator = Validator::make($request->all(), [
         'photo' => 'image| dimensions:min_width=100,min_height=200',
         'name' => 'required|max:255',
@@ -96,7 +95,7 @@ Route::patch('/patients/{patient}', function (\App\Models\Patient $patient, Requ
     return redirect(route('hospital.patients.index'));
 })->name('patients.update');
 
-//=====doctors
+
 
 
 

@@ -5,8 +5,10 @@ namespace App\models;
 
 
 use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
+use App\models\Specialization;
 
 class Doctor extends Model
 {
@@ -16,7 +18,7 @@ class Doctor extends Model
      * @var array
      */
     protected $fillable = [
-        'photo', 'name', 'phone', 'email', 'specialization_id', 'password',
+        'photo', 'name', 'phone', 'email', 'specialization_id',
     ];
 
     /**
@@ -27,6 +29,12 @@ class Doctor extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
+    /*
+     *
+     */
+public function specialization(){
+    return $this->hasOne('Specialization::class');
+}
     /*
      *
      */

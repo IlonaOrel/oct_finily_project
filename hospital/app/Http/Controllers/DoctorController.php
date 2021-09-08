@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\models\Doctor;
 use App\models\Patient;
-use App\models\Specializations;
+use App\models\Specialization;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\DoctorRequest;
 use App\Http\Requests\docRequest;
@@ -18,14 +18,15 @@ class DoctorController extends Controller
      */
 
    public function getAllDoctors(){
-       $doctors = Doctor::getByAll();
+       $doctors = Doctor::with('specialization')->get();
+       dd($doctors);
        return view('hospital.allDoctors',['doctors'=>$doctors]);
    }
    /*
     *
     */
    public function infoDoctor($id){
-       $doctor = Doctor::getByAllDoctor($id);
+       $doctor = Doctor::find($id);
 
        $patients = Patient::getPatientByDoctor($id);
 
@@ -35,7 +36,7 @@ class DoctorController extends Controller
     *
     */
    public function formByDoc(){
-       $specializations = Specializations::all();
+       $specializations = Specialization::all();
        return view('hospital.doctors.create', ['specializations'=>$specializations]);
    }
    /*
@@ -58,7 +59,7 @@ class DoctorController extends Controller
     */
     public function editDoctor($id){
         $doctor = Doctor::find($id);
-        $specializations = Specializations::all();
+        $specializations = Specialization::all();
         return view('hospital.doctors.edit', ['doctor'=>$doctor, 'specializations'=>$specializations]);
     }
     /*
@@ -73,7 +74,7 @@ class DoctorController extends Controller
         $doctorEdit->specialization_id = $request->specialization;
         $doctorEdit->password = $request->password;
         $doctorEdit->save();
-        return redirect(route('doctor.id', $id));
+        return redirect(route('doctors.show', $id));
     }
 
 }
