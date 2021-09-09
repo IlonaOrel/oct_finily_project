@@ -2,24 +2,21 @@
 
 @section('aside')
     @parent
-    @if(count($doctor)>0)
-        @foreach ($doctor as $item)
+
              <div class="row">
                <h4>
-                  <a  href="{{ route('doctors.edit', $item->id)}}">
+                  <a  href="{{ route('doctors.edit', $doctor->id)}}">
                   Edit my data
                    </a>
               </h4>
          </div>
-        @endforeach
-    @endif
+
 
 @endsection
 
 @section('content')
-    @if(count($doctor)>0)
-        @foreach ($doctor as $item)
-    <h2>Hello dr.{{$item->name}}</h2>
+
+    <h2>Hello dr.{{$doctor->name}}</h2>
 
     <div class="col-sm-9 padding-right">
         <div class="product-details">
@@ -27,20 +24,19 @@
 
                 <div class="col-sm-5">
                     <div class="view-product">
-                        <img src="{{\App\models\Doctor::getImage($item->photo)}}" class="img-thumbnail " alt="Photo doctor" />
+                        <img src="{{\App\models\Doctor::getImage($doctor->photo)}}" class="img-thumbnail " alt="Photo doctor" />
                     </div>
                 </div>
                 <div class="col-sm-7">
                     <div class="product-information">
-                        <h2>{{$item->name}}</h2>
-                        <p> Specialization: {{$item->specialization}}</p>
-                        <p> Phone: {{$item->phone}}</p>
-                        <p> Email: {{$item->email}}</p>
+                        <h2>{{$doctor->name}}</h2>
+                        <p> Specialization: {{$doctor->specialization->name}}</p>
+                        <p> Phone: {{$doctor->phone}}</p>
+                        <p> Email: {{$doctor->email}}</p>
                     </div>
                 </div>
             </div>
-            @endforeach
-            @endif
+
             <div class="row">
                 <div class="col-sm-12">
                     @if (count($patients) > 0)
@@ -68,7 +64,7 @@
                                                 </div>
                                             </td>
                                             <td class="table-text">
-                                                <a href="{{ route('card.id', $patient->id)}}">
+                                                <a href="{{ route('patients.show', $patient->id)}}">
                                                     <div>{{ $patient->name }}</div>
                                                 </a>
                                             </td>

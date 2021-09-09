@@ -20,9 +20,9 @@
                                             <div class="doctorsinfo text-center">
                                                 <img src="{{App\models\Doctor::getImage($doctor->photo)}}" class="img-thumbnail" alt="Photo patient" />
                                                 <a href="{{ route('doctors.show', $doctor->id)}}">
-                                                    <h2>{{$doctor->doctor}}</h2>
+                                                    <h2>{{$doctor->name}}</h2>
                                                 </a>
-                                                <div>{{ $doctor->specialization }}</div>
+                                                <div>{{ $doctor->specialization->name}}</div>
                                                 <div>{{ $doctor->phone }}</div>
                                                 <div>{{ $doctor->email }}</div>
                                             </div>

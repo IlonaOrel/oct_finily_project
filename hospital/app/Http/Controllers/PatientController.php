@@ -12,7 +12,9 @@ class PatientController extends Controller
      *
      */
    public function getAllPatients(){
-       $patients = Patient::getByAllPatients();
+
+       $patients = Patient::with('status')->get();
+       dd($patients);
        return view('hospital.patients.allPatients', ['patients'=>$patients]);
    }
    /*

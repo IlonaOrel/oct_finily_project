@@ -14,22 +14,20 @@ use App\Http\Requests\docRequest;
 class DoctorController extends Controller
 {
     /*
-     *
+     *Получаем всех докторов больницы
      */
 
    public function getAllDoctors(){
        $doctors = Doctor::with('specialization')->get();
-       dd($doctors);
        return view('hospital.allDoctors',['doctors'=>$doctors]);
    }
    /*
-    *
+    *Получаем информацию об обном докторе
     */
-   public function infoDoctor($id){
+   public function showDoctor($id){
        $doctor = Doctor::find($id);
-
        $patients = Patient::getPatientByDoctor($id);
-
+       //dd($patients);
        return view('hospital.doctors.index',['doctor'=>$doctor, 'patients'=>$patients]);
    }
    /*

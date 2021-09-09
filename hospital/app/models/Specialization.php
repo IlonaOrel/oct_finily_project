@@ -10,7 +10,7 @@ class Specialization extends Model
     protected $fillable = ['name', ];
 
     public function doctor(){
-        return $this->hasOne('Doctor::class');
+        return $this->hasMany(Doctor::class);
     }
 
 }

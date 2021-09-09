@@ -16,7 +16,7 @@ Route::get('/register', 'DoctorController@formByDoc')->name('doctors.create');
 
 Route::post('/doctors', 'DoctorController@createDoctor')->name('doctors.store');
 
-Route::get('/doctors/{doctor}', 'DoctorController@infoDoctor')->name('doctors.show');//todo написать запрос
+Route::get('/doctors/{doctor}', 'DoctorController@showDoctor')->name('doctors.show');//todo написать запрос
 
 Route::get('/doctors/{doctor}/edit', 'DoctorController@editDoctor')->name('doctors.edit');
 
@@ -25,7 +25,7 @@ Route::patch('/doctors/{doctor}', 'DoctorController@updateDoctor')->name('doctor
 //=============patients===================================
 Route::get('/patients', 'PatientController@getAllPatients')->name('hospital.patients');
 
-Route::get('/patients/{patient}', 'PatientController@infoPatient')->name('patients.show');
+Route::get('/patients/{patient}', 'PatientController@showPatient')->name('patients.show');
 
 
 

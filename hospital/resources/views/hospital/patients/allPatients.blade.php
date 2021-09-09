@@ -33,7 +33,7 @@
 
                                                   </td>
                                                   <td class="table-text">
-                                                      <a href="{{ route('card.id', $patient->id)}}">
+                                                      <a href="{{ route('patients.show', $patient->id)}}">
                                                      <div>{{ $patient->name }}</div>
                                                       </a>
                                                   </td>
@@ -42,7 +42,7 @@
                                                    </td>
                                                    <td class="table-text">
                                                      <div>
-                                                          <a href="{{route('doctor.id', $patient->doc)}}">{{$patient->doctor}}</a>
+                                                          <a href="{{route('patients.show', $patient->doc)}}">{{$patient->doctor}}</a>
                                                      </div>
                                                    </td>
                                                    <td class="table-text">

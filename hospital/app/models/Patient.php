@@ -4,11 +4,25 @@ namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use App\models\Card;
+use App\models\DoctorPatient;
+use App\models\Status;
 
 class Patient extends Model
 {
     protected $fillable = ['photo','name', 'birthday', 'address', 'phone', 'email', 'confidant', ];
+
+    /*
+    *
+    */
+    public function doctorPatient(){
+        return $this->hasMany(DoctorPatient::class);
+    }
+    /*
+     * ко многим через
+     */
+    public function status(){
+        return $this ->hasManyThrough(Patient::class, Status::class);
+    }
 /*
  *
  */
@@ -17,8 +31,8 @@ class Patient extends Model
         $patients = DB::table('doctor_patients')
             ->join('doctors', 'doctor_patients.doctor_id', '=', 'doctors.id')
             ->join('patients', 'doctor_patients.patient_id', '=', 'patients.id')
-            ->join('status', 'doctor_patients.status_id', '=', 'status.id')
-            ->select('patients.id','patients.photo', 'patients.name as name', 'patients.birthday', 'doctors.id as doc', 'doctors.name as doctor ','status.name as status')
+            ->join('statuses', 'doctor_patients.status_id', '=', 'statuses.id')
+            ->select('patients.id','patients.photo', 'patients.name as name', 'patients.birthday', 'doctors.id as doc', 'doctors.name as doctor ','statuses.name as status')
             ->get();
 
         return $patients;
@@ -30,9 +44,9 @@ class Patient extends Model
 
         $patients = DB::table('doctor_patients')
             ->join('patients', 'doctor_patients.patient_id', '=', 'patients.id')
-            ->join('status', 'doctor_patients.status_id', '=', 'status.id')
+            ->join('statuses', 'doctor_patients.status_id', '=', 'statuses.id')
             ->where('doctor_patients.doctor_id', '=', $id)
-            ->select('patients.id','patients.photo', 'patients.name as name', 'patients.birthday', 'status.name as status')
+            ->select('patients.id','patients.photo', 'patients.name as name', 'patients.birthday', 'statuses.name as status')
             ->get();
 
         return $patients;

@@ -3,12 +3,11 @@
 
 namespace App\models;
 
-
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use App\models\Specialization;
+use App\models\DoctorPatient;
 
 class Doctor extends Model
 {
@@ -33,8 +32,14 @@ class Doctor extends Model
      *
      */
 public function specialization(){
-    return $this->hasOne('Specialization::class');
+    return $this->belongsTo(Specialization::class);
 }
+/*
+ *
+ */
+    public function doctorPatient(){
+        return $this->hasMany(DoctorPatient::class);
+    }
     /*
      *
      */
