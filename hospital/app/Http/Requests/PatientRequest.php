@@ -27,10 +27,11 @@ class PatientRequest extends Request
         return [
 //            'photo' => 'mimes:jpeg,bmp,png',
             'name' => 'required|max:255',
+ //           'birthday'=>'before:date 01/01/2015',
+            'address'=>'required|max:255',
             'phone' => 'required|min:7',
-            'email' => 'required|email|max:255|unique:doctorsDoctorRequest.php',
-            'specialization_id' => 'integer',
-            'password' => 'required|min:6|confirmed',
+            'email' => 'required|email|max:255',
+            'cinfidant'=>'text',
         ];
     }
 
