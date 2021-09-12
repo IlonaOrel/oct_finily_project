@@ -1,21 +1,25 @@
 @extends('layouts.app')
-
 @section('aside')
     @parent
-       <div class="row">
-          <h4>
-              <a  href="{{ route('patients.edit', $patient->id)}}">
-                  Edit data patient
-              </a>
-          </h4>
-       </div>
+    <div class="row">
+        <h4>
+            <a  href="{{ route('patients.edit', $patient->id)}}">
+                Edit data patient
+            </a>
+        </h4>
+    </div>
+    <div class="row">
+        <h4>
+            <a  href="{{ route('cards.create') }}">
+                New visit
+            </a>
+        </h4>
+    </div>
 @endsection
-
 @section('content')
     <div class="col-sm-9 padding-right">
         <div class="product-details">
             <div class="row">
-
                 <div class="col-sm-5">
                     <div class="view-product">
                         <img src="{{\App\models\Patient::getImage($patient->photo)}}" class="img-thumbnail img-fluid" width="50%" alt="Photo patient" />
@@ -32,20 +36,26 @@
                     </div>
                 </div>
             </div>
-
+            <div>
+                <a  href="{{ route('patients.create') }}">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-btn fa-user"></i> New visit
+                    </button>
+                </a>
+            </div>
             <div class="row">
                 <div class="col-sm-12">
-
                     @if (count($visits) > 0)
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <table class="table table-striped task-table">
                                     <br/>
                                     <h3>Patient appeals</h3>
-                                            <!-- Заголовок таблицы -->
+                                    <!-- Заголовок таблицы -->
                                     <thead>
                                     <tr>
                                         <th>Date visit</th>
+                                        <th>Doctor</th>
                                         <th>Examination</th>
                                         <th>Conclusion</th>
                                         <th>Treatment</th>
@@ -57,21 +67,24 @@
                                     @foreach ($visits as $visit)
                                         <tr>
                                             <td class="table-text">
-                                                <div>{{$visit->$date}}</div>
+                                                <div>{{$visit->date_visit}}</div>
                                             </td>
                                             <td class="table-text">
-                                                <div>{{$visit->$examination}}</div>
+                                                <div>{{$visit->doctor->name}}</div>
                                             </td>
                                             <td class="table-text">
-                                                <div>{{$visit->$conclusion}}</div>
+                                                <div>{{$visit->examination->name}}</div>
                                             </td>
                                             <td class="table-text">
-                                                <div>{{$visit->$treatment}}</div>
+                                                <div>{{$visit->conclusion}}</div>
                                             </td>
                                             <td class="table-text">
-                                                <div>{{$visit->$status}}</div>
+                                                <div>{{$visit->treatment}}</div>
                                             </td>
-                                            @if($visit->$status !=='discharged')
+                                            <td class="table-text">
+                                                <div>{{$visit->status->name}}</div>
+                                            </td>
+                                            @if($visit->status->name !=='discharged')
                                                 <td>
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="fa fa-btn fa-user"></i> Edit
@@ -98,6 +111,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 @endsection

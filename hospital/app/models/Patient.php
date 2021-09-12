@@ -2,14 +2,15 @@
 
 namespace App\models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 use App\models\DoctorPatient;
 use App\models\Status;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+
 
 class Patient extends Model
 {
-    protected $fillable = ['photo','name', 'birthday', 'address', 'phone', 'email', 'confidant', ];
+    protected $fillable = ['photo', 'name', 'birthday', 'address', 'phone', 'email', 'confidant', ];
 
     /*
     *
@@ -18,39 +19,19 @@ class Patient extends Model
         return $this->hasMany(DoctorPatient::class);
     }
     /*
-     * ко многим через
+     * ко многим через todo
      */
     public function status(){
-        return $this ->hasManyThrough(Patient::class, Status::class);
-    }
-/*
- *
- */
-    public static function getByAllPatients()
-    {
-        $patients = DB::table('doctor_patients')
-            ->join('doctors', 'doctor_patients.doctor_id', '=', 'doctors.id')
-            ->join('patients', 'doctor_patients.patient_id', '=', 'patients.id')
-            ->join('statuses', 'doctor_patients.status_id', '=', 'statuses.id')
-            ->select('patients.id','patients.photo', 'patients.name as name', 'patients.birthday', 'doctors.id as doc', 'doctors.name as doctor ','statuses.name as status')
-            ->get();
-
-        return $patients;
+        return $this ->hasManyThrough(Status::class, DoctorPatient::class);
     }
     /*
-     *
+     * ко многим через todo
      */
-    public static function getPatientByDoctor($id){
-
-        $patients = DB::table('doctor_patients')
-            ->join('patients', 'doctor_patients.patient_id', '=', 'patients.id')
-            ->join('statuses', 'doctor_patients.status_id', '=', 'statuses.id')
-            ->where('doctor_patients.doctor_id', '=', $id)
-            ->select('patients.id','patients.photo', 'patients.name as name', 'patients.birthday', 'statuses.name as status')
-            ->get();
-
-        return $patients;
+    public function doctor(){
+        return $this ->hasManyThrough(Doctor::class, DoctorPatient::class);
     }
+
+
     /*
      *
      */
@@ -83,11 +64,11 @@ class Patient extends Model
     public static function getImage($imageUrl)
     {
 
+
         $noImage = 'no_image.jpg';
         $path = '/upload/images/patients/';
         $pathToProductImage = $path . $imageUrl;
-
-        if (file_exists($pathToProductImage)) {
+        if (!file_exists($pathToProductImage)) {
             return $pathToProductImage;
         }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\models\Doctor;
+use App\models\DoctorPatient;
 use App\models\Patient;
 use App\models\Specialization;
 use Illuminate\Support\Facades\DB;
@@ -26,21 +27,20 @@ class DoctorController extends Controller
     */
    public function showDoctor($id){
        $doctor = Doctor::find($id);
-       $patients = Patient::getPatientByDoctor($id);
-       //dd($patients);
+       $patients = DoctorPatient::with('status', 'doctor', 'patient')->where('doctor_id', $id)->get();
        return view('hospital.doctors.index',['doctor'=>$doctor, 'patients'=>$patients]);
    }
    /*
     *
     */
-   public function formByDoc(){
+   public function createDoctor(){
        $specializations = Specialization::all();
        return view('hospital.doctors.create', ['specializations'=>$specializations]);
    }
    /*
     *
     */
-   public function createDoctor(DoctorRequest $request){
+   public function storeDoctor(DoctorRequest $request){
        $doctor = new Doctor();
        $doctor->photo = $request->photo;
        $doctor->name = $request->name;

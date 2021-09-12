@@ -1,27 +1,19 @@
 @extends('layouts.app')
-
 @section('aside')
     @parent
-
-             <div class="row">
-               <h4>
-                  <a  href="{{ route('doctors.edit', $doctor->id)}}">
+        <div class="row">
+            <h4>
+                <a  href="{{ route('doctors.edit', $doctor->id)}}">
                   Edit my data
-                   </a>
-              </h4>
-         </div>
-
-
+                </a>
+            </h4>
+        </div>
 @endsection
-
 @section('content')
-
     <h2>Hello dr.{{$doctor->name}}</h2>
-
     <div class="col-sm-9 padding-right">
         <div class="product-details">
             <div class="row">
-
                 <div class="col-sm-5">
                     <div class="view-product">
                         <img src="{{\App\models\Doctor::getImage($doctor->photo)}}" class="img-thumbnail " alt="Photo doctor" />
@@ -36,7 +28,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-sm-12">
                     @if (count($patients) > 0)
@@ -59,20 +50,19 @@
                                         <tr>
                                             <td class="table-text">
                                                 <div class="patients-image-wrapper">
-
-                                                    <img src="{{\App\models\Patient::getImage($patient->photo)}}" class="img-thumbnail img-fluid" width="20%" alt="Photo patient" />
+                                                    <img src="{{\App\models\Patient::getImage($patient->patient->photo)}}" class="img-thumbnail img-fluid" width="20%" alt="Photo patient" />
                                                 </div>
                                             </td>
                                             <td class="table-text">
-                                                <a href="{{ route('patients.show', $patient->id)}}">
-                                                    <div>{{ $patient->name }}</div>
+                                                <a href="{{ route('patients.show', $patient->patient->id)}}">
+                                                    <div>{{ $patient->patient->name }}</div>
                                                 </a>
                                             </td>
                                             <td class="table-text">
-                                                <div>{{ $patient->birthday }}</div>
+                                                <div>{{ $patient->patient->birthday }}</div>
                                             </td>
                                             <td class="table-text">
-                                                <div>{{ $patient->status }}</div>
+                                                <div>{{ $patient->status->name }}</div>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -86,9 +76,5 @@
                 </div>
             </div>
         </div>
-
     </div>
-    </div>
-    </div>
-
 @endsection

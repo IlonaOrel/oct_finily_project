@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title-block')
+    create doctor
+@endsection
 @section('content')
     <div class="container">
         <div class="row">

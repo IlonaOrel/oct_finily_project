@@ -1,18 +1,16 @@
 @extends('layouts.app')
-
 @section('title-block')
     all doctors
 @endsection
-
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                  @if (count($doctors) > 0)
+                @if (count($doctors) > 0)
                     <div class="padding-centre">
-                        <div class="features_items"><!--features_items-->
-                            <h1 class="title text-center">All doctors</h1>
-
+                        <div class="features_items">
+                            <!--features_items-->
+                            <h1 class="title text-center">All doctors</h1>\
                             @foreach ($doctors as $doctor)
                                 <div class="col-sm-4 padding-10">
                                     <div class="doctors-image-wrapper">
@@ -38,8 +36,6 @@
             </div>
         </div>
     </div>
-
-
 @endsection
 
 
