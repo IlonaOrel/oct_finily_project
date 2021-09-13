@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         <h4>
-            <a  href="{{ route('cards.create') }}">
+            <a  href="{{ route('cards.create')}}">
                 New visit
             </a>
         </h4>
@@ -35,13 +35,6 @@
                         <p> Confidant: {{$patient->confidant}}</p>
                     </div>
                 </div>
-            </div>
-            <div>
-                <a  href="{{ route('patients.create') }}">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fa fa-btn fa-user"></i> New visit
-                    </button>
-                </a>
             </div>
             <div class="row">
                 <div class="col-sm-12">
@@ -86,9 +79,11 @@
                                             </td>
                                             @if($visit->status->name !=='discharged')
                                                 <td>
-                                                    <button type="submit" class="btn btn-primary">
-                                                        <i class="fa fa-btn fa-user"></i> Edit
-                                                    </button>
+                                                    <a  href="{{ route('cards.edit',  $visit->id) }}">
+                                                        <button type="submit" class="btn btn-primary">
+                                                            <i class="fa fa-btn"></i> Edit
+                                                        </button>
+                                                    </a>
                                                 </td>
                                             @else
                                                 <td></td>
@@ -99,15 +94,15 @@
                                 </table>
                             </div>
                         </div>
-                    @else
+                    @endif
                         <div>
-                            <a  href="{{ route('patients.create') }}">
+                            <a  href="{{ route('cards.create') }}">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i> New visit
                                 </button>
                             </a>
                         </div>
-                    @endif
+
                 </div>
             </div>
         </div>

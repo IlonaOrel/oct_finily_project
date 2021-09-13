@@ -10,7 +10,7 @@ use App\models\Patient;
 
 class DoctorPatient extends Model
 {
-    protected $fillable = ['patient_id', 'doctor_id', 'examination_id', 'conclusion','treatment', 'date', 'status_id',];
+    protected $fillable = ['patient_id', 'doctor_id', 'examination_id', 'conclusion','treatment', 'date_visit', 'status_id',];
 
 /*
  *

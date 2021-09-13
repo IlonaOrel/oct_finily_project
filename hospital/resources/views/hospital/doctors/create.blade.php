@@ -45,13 +45,12 @@
                                 <label for="specialization" class="col-md-4 control-label">Specialization</label>
                                 @if(count($specializations)>0)
                                 <div class="col-md-6">
-                                    <input list="specialization_id" class="form-control" name="specialization_id" value=""/>
-                                    <datalist id="specialization_id">
+                                    <select size="1" class="form-control"  name="specialization_id">
                                         @foreach($specializations as $specialization)
-                                        <option value="{{$specialization->name}}"></option>
+                                            <option value="{{$specialization->id}}">{{$specialization->name}}</option>
                                         @endforeach
-                                    </datalist>
-                                    <input type="hidden" class="form-control" name="specialization_id" value="{{$specialization->id}}"/>                                                     </div>
+                                    </select>
+                                </div>
                                 @endif
                             </div>
 

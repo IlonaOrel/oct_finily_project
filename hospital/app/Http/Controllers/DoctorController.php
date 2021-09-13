@@ -31,14 +31,14 @@ class DoctorController extends Controller
        return view('hospital.doctors.index',['doctor'=>$doctor, 'patients'=>$patients]);
    }
    /*
-    *
+    *Создаем нового доктора
     */
    public function createDoctor(){
        $specializations = Specialization::all();
        return view('hospital.doctors.create', ['specializations'=>$specializations]);
    }
    /*
-    *
+    *Сохраняем данные о докторе
     */
    public function storeDoctor(DoctorRequest $request){
        $doctor = new Doctor();
@@ -53,7 +53,7 @@ class DoctorController extends Controller
 
    }
    /*
-    *
+    *Редактируем данные о докторе
     */
     public function editDoctor($id){
         $doctor = Doctor::find($id);
@@ -61,7 +61,7 @@ class DoctorController extends Controller
         return view('hospital.doctors.edit', ['doctor'=>$doctor, 'specializations'=>$specializations]);
     }
     /*
-     *
+     *Обновляем данные о докторе
      */
     public function updateDoctor($id, docRequest $request){
 

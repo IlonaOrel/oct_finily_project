@@ -27,8 +27,8 @@ class CardRequest extends Request
             'patient_id' => 'integer',
             'doctor_id' => 'integer',
             'examination_id' => 'integer',
-            'conclusion' => 'text',
-            'treatment' => 'required|min:255',
+           // 'conclusion' => 'text',
+          //  'treatment' => 'max:255',
             'status_id' => 'integer',
             'date' => 'date',
         ];

@@ -14,30 +14,43 @@
                             {{ csrf_field() }}
                             {{--//todo доработать чтобы отображался текущий пациент--}}
                             <div class="form-group">
-                                <label for="name" class="col-md-4 control-label">Patient</label>
-                                <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}"/>
-                                </div>
-                            </div>
-                            {{--//todo доработать чтобы отображался текущий доктор--}}
-                            <div class="form-group">
-                                <label for="name" class="col-md-4 control-label">Doctor</label>
-                                <div class="col-md-6">
-                                    <input  type="file" class="form-control" name="photo" value="{{ old('doctor') }}"/>
-                                </div>
+                                <label for="examination" class="col-md-4 control-label">Patient</label>
+                                @if(count($patients)>0)
+                                    <div class="col-md-6">
+                                        <select size="1" class="form-control"  name="patient_id">
+                                            @foreach($patients as $patient)
+                                                <option value="{{$patient->id}}"></option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                @endif
                             </div>
 
+                            {{--//todo доработать чтобы отображался текущий доктор--}}
                             <div class="form-group">
-                                <label for="specialization" class="col-md-4 control-label">Examination</label>
+                                <label for="examination" class="col-md-4 control-label">Doctor</label>
+                                @if(count($doctors)>0)
+                                    <div class="col-md-6">
+                                        <select size="1" class="form-control"  name="doctor_id">
+                                            @foreach($doctors as $doctor)
+                                                <option value="{{$doctor->id}}"></option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                @endif
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="examination" class="col-md-4 control-label">Examination</label>
                                 @if(count($examinations)>0)
                                     <div class="col-md-6">
-                                        <input list="examination_id" class="form-control" name="examination_id" value=""/>
-                                        <datalist id="examination_id">
+                                        <select size="1" class="form-control"  name="examination_id">
                                             @foreach($examinations as $examination)
-                                                <option value="{{$examination->name}}"></option>
+                                                <option value="{{$examination->id}}"></option>
                                             @endforeach
-                                        </datalist>
-                                        <input type="hidden" class="form-control" name="examination_id" value="{{$examination->id}}"/>                                                     </div>
+                                        </select>
+                                    </div>
                                 @endif
                             </div>
 
@@ -60,7 +73,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="date" class="col-md-4 control-label">Date visit</label>
+                                <label for="date_visit" class="col-md-4 control-label">Date visit</label>
                                 <div class="col-md-6">
                                     <input  type="date" class="form-control" name="date_visit" value="{{ old('date') }}"/>
                                 </div>
@@ -70,13 +83,12 @@
                                 <label for="status" class="col-md-4 control-label">Status</label>
                                 @if(count($statuses)>0)
                                     <div class="col-md-6">
-                                        <input list="status_id" class="form-control" name="status_id" value=""/>
-                                        <datalist id="status_id">
+                                        <select size="1" class="form-control"  name="status_id">
                                             @foreach($statuses as $status)
-                                                <option value="{{$status->name}}"></option>
+                                                <option value="{{$status->id}}"></option>
                                             @endforeach
-                                        </datalist>
-                                        <input type="hidden" class="form-control" name="status_id" value="{{$status->id}}"/>                                                     </div>
+                                        </select>
+                                    </div>
                                 @endif
                             </div>
 

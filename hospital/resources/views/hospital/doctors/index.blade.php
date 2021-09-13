@@ -75,6 +75,13 @@
                     @endif
                 </div>
             </div>
+            <div>
+                <a  href="{{ route('patients.create') }}">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-btn fa-user"></i> Add New Patient
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
 @endsection

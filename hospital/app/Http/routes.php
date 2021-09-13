@@ -36,9 +36,13 @@ Route::get('/patients/{patient}/edit', 'PatientController@editPatient')->name('p
 Route::patch('/patients/{patient}', 'PatientController@updatePatient')->name('patients.update');
 
 //===============================cards=======================
-Route::get('/cards/create', 'CardController@createVisit')->name('cards.create');
+Route::get('/cards/create', 'DoctorPatientController@createVisit')->name('cards.create');
 
-Route::post('/cards', 'PatientController@storeVisit')->name('cards.store');
+Route::post('/cards', 'DoctorPatientController@storeVisit')->name('cards.store');
+
+Route::get('/cards/{card}/edit', 'DoctorPatientController@editVisit')->name('cards.edit');
+
+Route::patch('/cards/{card}', 'DoctorPatientController@updateVisit')->name('cards.update');
 
 
 
