@@ -14,12 +14,13 @@
                             {{ csrf_field() }}
                             {{--//todo доработать чтобы отображался текущий пациент--}}
                             <div class="form-group">
-                                <label for="examination" class="col-md-4 control-label">Patient</label>
+                                <label for="patient" class="col-md-4 control-label">Patient</label>
                                 @if(count($patients)>0)
                                     <div class="col-md-6">
                                         <select size="1" class="form-control"  name="patient_id">
+                                            <option>Выберите пациента</option>
                                             @foreach($patients as $patient)
-                                                <option value="{{$patient->id}}"></option>
+                                                <option value="{{$patient->id}}">{{$patient->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -28,12 +29,13 @@
 
                             {{--//todo доработать чтобы отображался текущий доктор--}}
                             <div class="form-group">
-                                <label for="examination" class="col-md-4 control-label">Doctor</label>
+                                <label for="doctor" class="col-md-4 control-label">Doctor</label>
                                 @if(count($doctors)>0)
                                     <div class="col-md-6">
                                         <select size="1" class="form-control"  name="doctor_id">
+                                            <option>Выберите доктора</option>
                                             @foreach($doctors as $doctor)
-                                                <option value="{{$doctor->id}}"></option>
+                                                <option value="{{$doctor->id}}">{{$doctor->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -46,8 +48,9 @@
                                 @if(count($examinations)>0)
                                     <div class="col-md-6">
                                         <select size="1" class="form-control"  name="examination_id">
+                                            <option>Выберите вид обследования</option>
                                             @foreach($examinations as $examination)
-                                                <option value="{{$examination->id}}"></option>
+                                                <option value="{{$examination->id}}">{{$examination->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -57,18 +60,14 @@
                             <div class="form-group">
                                 <label for="conclusion" class="col-md-4 control-label">Conclusion</label>
                                 <div class="col-md-6">
-                                    <textarea for="conclusion" name="conclusion" id="conclusion" class="from-control"cols="45" rows="5">
-                                        {{ old('conclusion') }}
-                                    </textarea>
+                                    <textarea for="conclusion" name="conclusion" id="conclusion" class="from-control"cols="45" rows="5">{{ old('conclusion') }}</textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="treatment" class="col-md-4 control-label">Treatment</label>
                                 <div class="col-md-6">
-                                    <textarea for="treatment" name="treatment" id="treatment" class="from-control"cols="45" rows="5">
-                                        {{ old('treatment') }}
-                                    </textarea>
+                                    <textarea for="treatment" name="treatment" id="treatment" class="from-control"cols="45" rows="5">{{ old('treatment') }}</textarea>
                                 </div>
                             </div>
 
@@ -84,8 +83,9 @@
                                 @if(count($statuses)>0)
                                     <div class="col-md-6">
                                         <select size="1" class="form-control"  name="status_id">
+                                            <option>Выберите статус</option>
                                             @foreach($statuses as $status)
-                                                <option value="{{$status->id}}"></option>
+                                                <option value="{{$status->id}}">{{$status->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>

@@ -25,9 +25,9 @@ Route::patch('/doctors/{doctor}', 'DoctorController@updateDoctor')->name('doctor
 //=============patients===================================
 Route::get('/patients', 'PatientController@getAllPatients')->name('hospital.patients');
 
-Route::get('/patients/{patient}', 'PatientController@showPatient')->name('patients.show');
-
 Route::get('/patients/create', 'PatientController@createPatient')->name('patients.create');
+
+Route::get('/patients/{patient}', 'PatientController@showPatient')->name('patients.show');
 
 Route::post('/patients', 'PatientController@storePatient')->name('patients.store');
 

@@ -46,25 +46,21 @@
                             <div class="form-group">
                                 <label for="conclusion" class="col-md-4 control-label">Conclusion</label>
                                 <div class="col-md-6">
-                                    <textarea for="conclusion" name="conclusion" id="conclusion" class="from-control"cols="45" rows="5">
-                                        {{$card->conclusion }}
-                                    </textarea>
+                                    <textarea for="conclusion" name="conclusion" id="conclusion" class="from-control"cols="45" rows="5">{{$card->conclusion }}</textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="treatment" class="col-md-4 control-label">Treatment</label>
                                 <div class="col-md-6">
-                                    <textarea for="treatment" name="treatment" id="treatment" class="from-control"cols="45" rows="5">
-                                        {{ $card->treatment }}
-                                    </textarea>
+                                    <textarea for="treatment" name="treatment" id="treatment" class="from-control"cols="45" rows="5">{{ $card->treatment }}</textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="date" class="col-md-4 control-label">Date visit</label>
                                 <div class="col-md-6">
-                                    <input  type="date" class="form-control" name="date_visit" value="" />
+                                    <input  type="datetime-local" class="form-control" name="date_visit" value="{{str_replace(' ', 'T',$card->date_visit)}}" />
                                 </div>
                             </div>
 
