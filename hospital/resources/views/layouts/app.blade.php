@@ -13,7 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-{{--     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">--}}
+    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
         body {
@@ -21,33 +21,34 @@
         }
         footer{
             background-color: #B0BEC5;
+            position: absolute;
+            padding-top: 10px;
+            width: 100%;
+            height: 40px;
         }
-
         .fa-btn {
             margin-right: 6px;
         }
     </style>
 </head>
-
 <body id="app-layout">
-
-    @include('inc.header')
-    @if(Request::is('/'))
+@include('inc.header')
+@if(Request::is('/'))
     @include('inc.hidden')
-    @endif
-    <div class="conteiner">
-        <div class="row justify-content-md-center">
-            <div class="col col-md-2">
-                @include('inc.acide')
-            </div>
-            <div class="col-md-auto">
-                @yield('content')
-            </div>
-
+@endif
+<div class="conteiner">
+    <div class="row justify-content-md-center">
+        <div class="col col-md-2">
+            @include('inc.acide')
         </div>
-    </div>
+        <div class="col-md-auto">
+            @yield('content')
+        </div>
 
-    @include('inc.footer')
+    </div>
+</div>
+
+@include('inc.footer')
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>

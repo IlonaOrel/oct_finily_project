@@ -9,11 +9,31 @@ use App\models\Specialization;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\DoctorRequest;
 use App\Http\Requests\docRequest;
+use Auth;
 
 
 
 class DoctorController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('isDoctor');
+    }
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        dd( Auth::guard('doctor')->user());
+    }
+
     /*
      *Получаем всех докторов больницы
      */

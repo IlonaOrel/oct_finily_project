@@ -25,11 +25,5 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public static function getByAll(){
-        $doctors = DB::table('users')
-            ->join('specializations', 'users.specialization_id', '=', 'specializations.id')
-            ->select('users.id','users.name as doctor name','users.photo','users.phone','users.email','specializations.name as specialization')
-            ->get();
-        return $doctors;
-    }
+
 }

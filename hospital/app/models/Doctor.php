@@ -3,14 +3,17 @@
 
 namespace App\models;
 
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use App\models\Specialization;
 use App\models\DoctorPatient;
 
-class Doctor extends Model
+class Doctor extends  Authenticatable
 {
+
     /**
      * The attributes that are mass assignable.
      *

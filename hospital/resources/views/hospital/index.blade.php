@@ -5,45 +5,22 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Login</div>
-                    <div class="panel-body">
-                        @include('common.errors')
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                            {{ csrf_field() }}
-                            <div class="form-group">
-                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="col-md-4 control-label">Password</label>
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember"> Remember Me
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-btn fa-sign-in"></i> Login
-                                    </button>
-                                    <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-                                </div>
-                            </div>
-                        </form>
+                    <div class="panel-heading">Hospital</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, nesciunt optio. Accusamus adipisci assumenda at doloremque hic iure nobis nulla quam quidem, saepe sequi ut vero vitae. A, atque cupiditate dignissimos dolores enim facere impedit libero, neque optio quam, quasi veritatis. Adipisci aliquam architecto asperiores autem eveniet iusto, nemo omnis rem soluta voluptas. Facere fuga, maxime, nihil odio odit possimus praesentium qui quibusdam reprehenderit rerum soluta vero voluptatem. Accusantium aspernatur atque consectetur culpa dolores eaque earum eos exercitationem illo illum iure labore libero, nisi nobis officia officiis omnis optio quae quia quod reiciendis rerum sapiente unde vel velit vitae voluptate! Accusantium at ea laudantium magni pariatur quia ratione! Animi labore laudantium, necessitatibus nihil omnis recusandae similique unde ut. A aliquam animi asperiores aspernatur, beatae consectetur cumque dignissimos distinctio dolore earum eligendi enim eos eum expedita facilis fuga fugit illum incidunt ipsam itaque laboriosam laudantium, minima molestiae nam neque obcaecati placeat porro possimus praesentium quis quisquam quod quos recusandae similique soluta tempore voluptate! Ab adipisci commodi consequuntur culpa cumque delectus deserunt eaque, enim esse eveniet expedita explicabo hic id in laborum libero minima molestiae molestias nobis officiis placeat quas qui quos reprehenderit vero voluptatem voluptatum. Ab ea laborum officiis voluptatem voluptates!
+                    </p>
+                    <div>
                     </div>
-                </div>
+                    </div>
+                <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Services</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, nesciunt optio. Accusamus adipisci assumenda at doloremque hic iure nobis nulla quam quidem, saepe sequi ut vero vitae. A, atque cupiditate dignissimos dolores enim facere impedit libero, neque optio quam, quasi veritatis. Adipisci aliquam architecto asperiores autem eveniet iusto, nemo omnis rem soluta voluptas. Facere fuga, maxime, nihil odio odit possimus praesentium qui quibusdam reprehenderit rerum soluta vero voluptatem. Accusantium aspernatur atque consectetur culpa dolores eaque earum eos exercitationem illo illum iure labore libero, nisi nobis officia officiis omnis optio quae quia quod reiciendis rerum sapiente unde vel velit vitae voluptate! Accusantium at ea laudantium magni pariatur quia ratione! Animi labore laudantium, necessitatibus nihil omnis recusandae similique unde ut. A aliquam animi asperiores aspernatur, beatae consectetur cumque dignissimos distinctio dolore earum eligendi enim eos eum expedita facilis fuga fugit illum incidunt ipsam itaque laboriosam laudantium, minima molestiae nam neque obcaecati placeat porro possimus praesentium quis quisquam quod quos recusandae similique soluta tempore voluptate! Ab adipisci commodi consequuntur culpa cumque delectus deserunt eaque, enim esse eveniet expedita explicabo hic id in laborum libero minima molestiae molestias nobis officiis placeat quas qui quos reprehenderit vero voluptatem voluptatum. Ab ea laborum officiis voluptatem voluptates!
+                    </p>
+            </div>
             </div>
         </div>
     </div>
