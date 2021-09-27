@@ -18,8 +18,8 @@ Route::group(['middleware' => 'doctor'], function() {
 });
 
 //================================= Маршруты регистрации...
-Route::get('/register', 'DoctorController@createDoctor')->name('doctors.create');
-Route::post('/doctors', 'DoctorController@storeDoctor')->name('doctors.store');
+Route::get('/register', 'AuthDoctor\LoginController@createDoctor')->name('doctors.create');
+Route::post('/doctors', 'AuthDoctor\LoginController@storeDoctor')->name('doctors.store');
 
 //============================= Маршруты аутентификации...
 //Route::get('/doctor','DoctorController@index');

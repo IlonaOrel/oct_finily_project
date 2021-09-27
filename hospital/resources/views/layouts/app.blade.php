@@ -16,15 +16,21 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
+        html {
+            margin:0px;
+            padding:0px;
+            height:100%;
+        }
         body {
             font-family: 'Lato';
         }
         footer{
             background-color: #B0BEC5;
-            position: absolute;
-            padding-top: 10px;
+            position: relative;
+            height: 27px;
             width: 100%;
-            height: 40px;
+            bottom: 0px;
+            z-index: 1;
         }
         .fa-btn {
             margin-right: 6px;

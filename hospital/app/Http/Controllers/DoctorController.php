@@ -50,28 +50,28 @@ class DoctorController extends Controller
        $patients = DoctorPatient::with('status', 'doctor', 'patient')->where('doctor_id', $id)->get();
        return view('hospital.doctors.index',['doctor'=>$doctor, 'patients'=>$patients]);
    }
-   /*
-    *Создаем нового доктора
-    */
-   public function createDoctor(){
-       $specializations = Specialization::all();
-       return view('hospital.doctors.create', ['specializations'=>$specializations]);
-   }
-   /*
-    *Сохраняем данные о докторе
-    */
-   public function storeDoctor(DoctorRequest $request){
-       $doctor = new Doctor();
-       $doctor->photo = $request->photo;
-       $doctor->name = $request->name;
-       $doctor->phone = $request->phone;
-       $doctor->email = $request->email;
-       $doctor->specialization_id = $request->specialization_id;
-       $doctor->password = $request->password;
-       $doctor->save();
-       return view('hospital.index');
-
-   }
+//   /*
+//    *Создаем нового доктора
+//    */
+//   public function createDoctor(){
+//       $specializations = Specialization::all();
+//       return view('hospital.doctors.create', ['specializations'=>$specializations]);
+//   }
+//   /*
+//    *Сохраняем данные о докторе
+//    */
+//   public function storeDoctor(DoctorRequest $request){
+//       $doctor = new Doctor();
+//       $doctor->photo = $request->photo;
+//       $doctor->name = $request->name;
+//       $doctor->phone = $request->phone;
+//       $doctor->email = $request->email;
+//       $doctor->specialization_id = $request->specialization_id;
+//       $doctor->password = $request->password;
+//       $doctor->save();
+//       return view('hospital.index');
+//
+//   }
    /*
     *Редактируем данные о докторе
     */

@@ -40,9 +40,9 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'doctors' =>[
+        'doctor' =>[
             'driver' => 'session',
-            'provider' => 'doctors',
+            'provider' => 'doctor',
         ],
 
         'api' => [
@@ -74,7 +74,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-        'doctors' => [
+        'doctor' => [
             'driver' => 'eloquent',
             'model' => App\model\Doctor::class,
         ],
@@ -111,8 +111,8 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
-        'doctors' => [
-            'provider' => 'doctors',
+        'doctor' => [
+            'provider' => 'doctor',
             'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,

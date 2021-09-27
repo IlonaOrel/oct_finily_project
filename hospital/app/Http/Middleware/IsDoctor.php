@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Requests\DoctorRequest;
 use Closure;
 use Auth;
 
@@ -15,7 +16,7 @@ class IsDoctor
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = 'doctor')
+    public function handle(DoctorRequest $request, Closure $next, $guard = 'doctor')
     {
         if (!Auth::guard($guard)->check()) {
             return redirect('/');

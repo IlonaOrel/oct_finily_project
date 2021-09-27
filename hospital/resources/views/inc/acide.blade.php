@@ -3,22 +3,22 @@
         <div class="col-sm-offset-2">
             <div class="row">
                 <h4>
-                    <a  href="{{ route('hospital.doctors') }}">
-                        Our Doctors
+                    <a  href="{{ route('hospital.about') }}">
+                        About
                     </a>
                 </h4>
             </div>
             <div class="row">
                 <h4>
-                    <a  href="{{ route('hospital.patients') }}">
-                        All Patients
+                    <a  href="{{ route('hospital.contact') }}">
+                        Contact
                     </a>
                 </h4>
             </div>
             <div class="row">
                 <h4>
-                    <a  href="{{ route('patients.create') }}">
-                        Add New Patient
+                    <a  href="#">
+                        Services
                     </a>
                 </h4>
             </div>

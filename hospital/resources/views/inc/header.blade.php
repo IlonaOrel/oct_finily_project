@@ -17,7 +17,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a href="{{ route('hospital.about') }}">About</a></li>
-                <li><a href="{{ route('hospital.doctors') }}">Our Doctors</a></li>
+                <li><a href="#"> Services</a></li>
                 <li><a href="{{ route('hospital.contact') }}">Contact</a></li>
             </ul>
             <!-- Right Side Of Navbar -->
