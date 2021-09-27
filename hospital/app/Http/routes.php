@@ -23,7 +23,7 @@ Route::post('/doctors', 'AuthDoctor\LoginController@storeDoctor')->name('doctors
 
 //============================= Маршруты аутентификации...
 //Route::get('/doctor','DoctorController@index');
-Route::get('/doctors/{doctor}', 'DoctorController@showDoctor')->name('doctors.show');
+Route::get('/doctor/{doctor}', 'DoctorController@showDoctor')->name('doctors.show');
 
 Route::get('/doctor/login',['as' => 'doctor.login','uses' => 'AuthDoctor\LoginController@showLoginForm']);
 
